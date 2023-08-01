@@ -13,15 +13,8 @@ const taskSchema = mongoose.Schema({
   complete:{
     type: Boolean,
     default: false,
-  },
-  usuario:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "veterinario"
-  },
+  }
 },
-{
-    timestamps: true,
-}
 
 )
 

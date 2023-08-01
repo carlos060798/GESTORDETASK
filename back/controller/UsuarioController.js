@@ -40,14 +40,14 @@ const Autenticar = async (req, res) => {
   
     if (user.password === password) {
      
-      res.json({
+      res.json({msg:"usuario autorizado",user:{
       
   
         _id: user.id,
         nombre: user.nombre,
         email: user.email,
         
-      }); 
+      }}); 
     } else {
       const error = new Error("password incorrecto"); //crea un nuevo error
       return res.status(403).json({ msg: error.message }); //envia un mensaje de usuario no encontrado

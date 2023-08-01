@@ -3,6 +3,7 @@ import express  from "express";
 import dotenv from "dotenv";
 import connectDB from "./db/bd.js";
 import UserRouter from "./route/userRouter.js";
+import TareaRouter from "./route/tareaRoute.js";
 
 
 // creacion de servidor
@@ -16,6 +17,7 @@ connectDB();
 
 
 app.use("/api/Usuario", UserRouter);
+app.use("/api/Tarea", TareaRouter);
 
 
 
