@@ -16,6 +16,7 @@ Arrastrar y Soltar: Ofrecer la capacidad de organizar tareas mediante la funció
 
 Compartir y Colaborar: Permitir a los usuarios compartir listas de tareas o tareas individuales con otros usuarios, lo que facilita la colaboración en proyectos o actividades compartidas.
 
-Historial y Registro de Actividades: Mantener un registro de las actividades anteriores para que los usuarios puedan rastrear el progreso y la evolución de sus tareas y proyectos.
+
++
 
 Los usuarios usarían estas funcionalidades para mejorar su organización personal, aumentar la eficiencia en la gestión de tareas, cumplir con plazos importantes, mantenerse al tanto de sus responsabilidades y proyectos, y reducir el estrés asociado con la falta de organización. En resumen, tu aplicación de gestor de tareas busca facilitar la vida de los usuarios al proporcionarles una plataforma centralizada para administrar y realizar un seguimiento de sus tareas y proyectos de manera efectiva.

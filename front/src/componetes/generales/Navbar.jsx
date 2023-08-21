@@ -8,12 +8,12 @@ function Menu() {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home">Tasks Manager </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="text-center" id="responsive-navbar-nav">
           <Nav className="me-auto">
           <Link to="/inicio" className="nav-link">Inicio</Link>
-            <Link to="/about" className="nav-link">Acerca de</Link>
+            <Link to="/about" className="nav-link">acerca de</Link>
            
             
          
