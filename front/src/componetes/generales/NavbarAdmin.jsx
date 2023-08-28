@@ -9,8 +9,7 @@ function NabarAdmin() {
     </button>
     <div className="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
       <ul className="navbar-nav">
-            <Link to="creartask" className="nav-link">Crear Tarea</Link>
-            <Link to="listtable" className="nav-link">Lista De Tareas</Link>
+            <Link to="taskmanager" className="nav-link">Gestor de Tareas</Link>
             <Link to="perfil" className="nav-link">Cuenta</Link>        
       </ul>
     </div>

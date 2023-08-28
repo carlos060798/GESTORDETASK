@@ -6,9 +6,8 @@ import Nosotros from "./pages/About";
 import LayautAdmin from "./componetes/Admin";
 import Home from "./pages/Inicio";
 import Section from "./componetes/generales/login"; 
-import FormTask from "./componetes/generales/FormTask";
-import TableList from "./componetes/generales/TableTask";
 import Perfils from "./componetes/generales/Perfil";
+import TasksComponet from "./componetes/generales/Tasks";
 
 function App() {
   return (
@@ -21,8 +20,7 @@ function App() {
         </Route>
 
         <Route path="user" element={<LayautAdmin/>}> 
-          <Route path="creartask" element={<FormTask/>}/>
-          <Route path="listtable" element={<TableList/>}/>
+          <Route path="taskmanager" element={<TasksComponet/>}/>
           <Route path="perfil" element={<Perfils/>}/>
         </Route>
       </Routes>
