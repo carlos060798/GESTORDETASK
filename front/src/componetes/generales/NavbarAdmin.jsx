@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function NabarAdmin() {
     return (<>
 <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -8,25 +9,9 @@ function NabarAdmin() {
     </button>
     <div className="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
       <ul className="navbar-nav">
-        <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">Features</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">Pricing</a>
-        </li>
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="#">Action</a></li>
-            <li><a className="dropdown-item" href="#">Another action</a></li>
-            <li><a className="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
+            <Link to="creartask" className="nav-link">Crear Tarea</Link>
+            <Link to="listtable" className="nav-link">Lista De Tareas</Link>
+            <Link to="perfil" className="nav-link">Cuenta</Link>        
       </ul>
     </div>
   </div>

@@ -30,7 +30,7 @@ function  Section() {
                 />
                 <label htmlFor="floatingPassword">Password</label>
               </div>
-             <Link to="/admin"> <button className="w-100 btn btn-lg btn-primary" >
+             <Link to="/user"> <button className="w-100 btn btn-lg btn-primary" >
             
                 Login
               </button>

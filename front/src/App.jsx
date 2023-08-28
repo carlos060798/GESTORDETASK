@@ -20,7 +20,7 @@ function App() {
         <Route path="/login" element={<Section/>}/> 
         </Route>
 
-        <Route path="/admin" element={<LayautAdmin/>}> 
+        <Route path="user" element={<LayautAdmin/>}> 
           <Route path="creartask" element={<FormTask/>}/>
           <Route path="listtable" element={<TableList/>}/>
           <Route path="perfil" element={<Perfils/>}/>
