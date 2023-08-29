@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function Menu() {
   return (
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+    <Navbar collapseOnSelect expand="lg" className="bg-primary text-light">
       <Container>
         <Navbar.Brand href="#home">Tasks Manager </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

@@ -4,7 +4,7 @@ function FormTask() {
         <h1 className="text-center fw-bold text-center text-primary">Crear Tareas</h1>
         <form>
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-12">
               <div className="mb-3">
                 <label htmlFor="nombres" className="form-label">
                   Nombres
