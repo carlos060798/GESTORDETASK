@@ -1,21 +1,43 @@
-import { Link } from "react-router-dom";
+
+  import { useState } from 'react';
+import { Navbar, Container, Nav, NavDropdown, Offcanvas, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 function NabarAdmin() {
-    return (<>
-<nav className="navbar navbar-expand-lg bg-primary text-white">
-  <div className="container">
-    <a className="navbar-brand" href="#">Navbar</a>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-      <ul className="navbar-nav">
-            <Link to="taskmanager" className="nav-link">Gestor de Tareas</Link>
-            <Link to="perfil" className="nav-link">Cuenta</Link>        
-      </ul>
-    </div>
-  </div>
-</nav>
-    </>  )
+
+  const [showOffcanvas, setShowOffcanvas] = useState(false);
+
+  const handleClose = () => setShowOffcanvas(false);
+
+  return (
+    <Navbar expand="lg" bg="primary" variant="dark">
+      <Container>
+        <Navbar.Brand href="#">Navbar</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarNavDropdown" onClick={handleShow} />
+        <Offcanvas show={showOffcanvas} onHide={handleClose} placement="end">
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <Nav className="justify-content-end flex-grow-1 pe-3">
+              <Nav.Link href="#action1">Home</Nav.Link>
+              <Nav.Link href="#action2">Link</Nav.Link>
+              <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
+                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+            <Form className="d-flex">
+              <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
+              <Button variant="outline-success">Search</Button>
+            </Form>
+          </Offcanvas.Body>
+        </Offcanvas>
+      </Container>
+    </Navbar>
+  );
 }
 
 export default NabarAdmin;
