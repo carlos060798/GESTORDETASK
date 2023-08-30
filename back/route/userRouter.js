@@ -1,18 +1,19 @@
 import express from "express";
+
 import {
   Registrar,
-  Autenticar,
   ModificarUsuario,
-  
-} from "../controller/UsuarioController.js";
+} from "../controller/UsuarioController.js"
+import autencicar from "../controller/LoginController.js";
 
 const router = express.Router();
 
 // rutas de veterinario publicas
 
-router.post("/", Registrar); 
+router.post("/", Registrar);
 router.put("/:id", ModificarUsuario);
-router.post("/login", Autenticar); 
 
+// rutas de  iniciar seccion
+router.post("/login", autencicar);
 
 export default router;
