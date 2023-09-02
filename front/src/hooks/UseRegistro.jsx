@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 function useRegistrarUser() {
   const [formData, setFormData] = useState({
@@ -6,8 +8,7 @@ function useRegistrarUser() {
     email: "",
     password: "",
   });
-
-
+  const redireccion = useNavigate();
 
   const [alerta, setAlerta] = useState({}); // Estado para mostrar la alerta
 
@@ -19,20 +20,11 @@ function useRegistrarUser() {
     }));
   };
 
-
   const handleRegistro = async (e) => {
     e.preventDefault();
 
     // Validar que no falten campos
-    if (
-      [
-        formData.nombre,
-        formData.email,
-        formData.password,
-       
-
-      ].includes("")
-    ) {
+    if ([formData.nombre, formData.email, formData.password].includes("")) {
       setAlerta({
         msg: "Todos los campos son obligatorios",
         error: true,
@@ -41,41 +33,43 @@ function useRegistrarUser() {
     }
     console.log(formData);
 
-  
     try {
-       // 1. Llamar a la API para crear el usuario
-   const usuarioResponse = await axios.post(
-    "http://localhost:4000/api/Usuario",
-    formData
-  );
-  const {data} = usuarioResponse;
+      // 1. Llamar a la API para crear el usuario
+      const usuarioResponse = await axios.post(
+        "http://localhost:4000/api/Usuario",
+        formData
+      );
+      const { data } = usuarioResponse;
       // Mostrar alerta de éxito
       setAlerta({
         msg: data.msg,
         error: false,
       });
       // Limpiar formulario
-      setFormData({
-        nombre: "",
-        email: "",
-        password: "",
-      });
-    
+      setTimeout(() => {
+        setFormData({
+          nombre: "",
+          email: "",
+          password: "",
+        });
+      }, 3000);
+      redireccion("/login");
     } catch (error) {
       console.error("Error al Registrarse:", error);
       // Mostrar alerta de error
-      setAlerta({
-        msg: error.response.data.msg,
-        error: true,
-      });
+      setTimeout(() => {
+        setAlerta({
+          msg: error.response.data.msg,
+          error: true,
+        });
+      }, 3000);
     }
   };
 
   return {
-    
     handleChange,
-    handleRegistro ,
-    formData,   
+    handleRegistro,
+    formData,
     alerta,
   };
 }

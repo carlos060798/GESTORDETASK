@@ -5,7 +5,6 @@ import generarJWT  from "../helpers/GenerarToken.js";
 
 const autenticar = async (req, res) => {
     const { email, password } = req.body;
-
     try {
         // Validar que el correo exista
         const usuario = await Usuario.findOne({ email });
