@@ -1,43 +1,44 @@
-
-  import { useState } from 'react';
-import { Navbar, Container, Nav, NavDropdown, Offcanvas, Form, Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Link } from 'react-router-dom';
 
 function NabarAdmin() {
-
-  const [showOffcanvas, setShowOffcanvas] = useState(false);
-
-  const handleClose = () => setShowOffcanvas(false);
-
-  return (
-    <Navbar expand="lg" bg="primary" variant="dark">
-      <Container>
-        <Navbar.Brand href="#">Navbar</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarNavDropdown" onClick={handleShow} />
-        <Offcanvas show={showOffcanvas} onHide={handleClose} placement="end">
-          <Offcanvas.Header closeButton>
-            <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-          </Offcanvas.Header>
-          <Offcanvas.Body>
-            <Nav className="justify-content-end flex-grow-1 pe-3">
-              <Nav.Link href="#action1">Home</Nav.Link>
-              <Nav.Link href="#action2">Link</Nav.Link>
-              <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+  return(<>
+  <Navbar expand="lg" className="bg-body-tertiary mb-3 ">
+  <Container >
+    <Navbar.Brand href="#">TASKMANAGER</Navbar.Brand>
+    <Navbar.Toggle aria-controls="offcanvasNavbar" />
+    <Navbar.Offcanvas
+      id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel"
+      placement="end"
+    >
+      <Offcanvas.Header closeButton>
+        <Offcanvas.Title id="offcanvasNavbarLabel">TASKMANAGER</Offcanvas.Title>
+      </Offcanvas.Header>
+      <Offcanvas.Body>
+        <Nav className="justify-content-end flex-grow-1 pe-3">
+        <Nav.Link as={Link} to="taskmanager">Gestor de tareas</Nav.Link> {/* Usar as={Link} */}
+              <NavDropdown
+                title="Cuenta"
+                id="offcanvasNavbarDropdown"
+              >
+                <NavDropdown.Item as={Link} to="perfil">Perfil</NavDropdown.Item> {/* Usar as={Link} */}
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
+                <NavDropdown.Item >Cerrar Sesión</NavDropdown.Item>
               </NavDropdown>
-            </Nav>
-            <Form className="d-flex">
-              <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
-              <Button variant="outline-success">Search</Button>
-            </Form>
-          </Offcanvas.Body>
-        </Offcanvas>
-      </Container>
-    </Navbar>
-  );
+        </Nav>
+     
+      </Offcanvas.Body>
+    </Navbar.Offcanvas>
+  </Container>
+</Navbar>
+  </>
+  )
 }
 
 export default NabarAdmin;

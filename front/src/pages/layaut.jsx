@@ -4,7 +4,7 @@ import Menu from "../componetes/generales/Navbar";
 function PageInicio() {
     return (<>
       <Menu/>
-    <Outlet/>
+     <Outlet/>
 
     
    

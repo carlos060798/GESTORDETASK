@@ -13,15 +13,15 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<PageInicio/>} >
-        <Route index path="/inicio" element={<Home/>}/>
-        <Route path="/about" element={<Nosotros/>}/> 
-        <Route path="/login" element={<Section/>}/> 
+        <Route path="/" element={<PageInicio />}>
+          <Route index element={<Home />} />
+          <Route path="/inicio" element={<Home />} />
+          <Route path="/about" element={<Nosotros />} />
+          <Route path="/login" element={<Section />} />
         </Route>
-
-        <Route path="user" element={<LayautAdmin/>}> 
-          <Route path="taskmanager" element={<TasksComponet/>}/>
-          <Route path="perfil" element={<Perfils/>}/>
+        <Route path="user" element={<LayautAdmin />}>
+          <Route path="taskmanager" element={<TasksComponet />} />
+          <Route path="perfil" element={<Perfils />} />
         </Route>
       </Routes>
     </BrowserRouter>

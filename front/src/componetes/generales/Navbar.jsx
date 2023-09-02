@@ -8,7 +8,7 @@ function Menu() {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-primary text-light">
       <Container>
-        <Navbar.Brand href="#home">Tasks Manager </Navbar.Brand>
+        <Navbar.Brand >Tasks Manager </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="text-center" id="responsive-navbar-nav">
           <Nav className="me-auto">
