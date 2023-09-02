@@ -28,9 +28,14 @@ const autenticar = async (req, res) => {
         // Generar el JWT
         const token = await generarJWT(usuario.id);
 
+        const {
+            nombre,email,id}= usuario;
+
         res.json({
             msg: "Inicio de sesión exitoso",
-            usuario,
+            nombre,
+            email,
+            id,
             token,
         });
     } catch (error) {

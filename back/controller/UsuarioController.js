@@ -68,6 +68,7 @@ const ModificarUsuario = async (req, res) => {
       });
   }
 }
+
 const Autenticar = async (req, res) => {
     const { email, password } = req.body;
   

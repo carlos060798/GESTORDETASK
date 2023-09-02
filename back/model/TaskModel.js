@@ -9,11 +9,21 @@ const taskSchema = mongoose.Schema({
   descripcion:{
   type: String,
   required: true,
-  },
+  },  
+  fecha:{
+    type: Date,
+    required: true,
+    default: Date.now()
+   },
   complete:{
     type: Boolean,
     default: false,
-  }
+  }, 
+  usuario:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Usuario"
+  },
+
 },
 
 )
