@@ -7,7 +7,7 @@ function Home() {
       <div className="bg-primary text-white text-center py-5 mt-3rem">
         <h1 className="text-xl font-bold">TaskManager</h1>
         <p className="text-xl mt-4">Mantente organizada y productiva</p>
-        <Link to="/listtask" className="mt-4">
+        <Link to="/Registro" className="mt-4">
           <button className="btn btn-dark mt-4">Empezar</button>
         </Link>
         <div className="text-blue-500 text-center py-3 mt-8">

@@ -29,7 +29,7 @@ function NabarAdmin() {
               >
                 <NavDropdown.Item as={Link} to="perfil">Perfil</NavDropdown.Item> {/* Usar as={Link} */}
                 <NavDropdown.Divider />
-                <NavDropdown.Item >Cerrar Sesión</NavDropdown.Item>
+                <NavDropdown.Item  as={Link}to="/" >Cerrar Sesión</NavDropdown.Item>
               </NavDropdown>
         </Nav>
      
