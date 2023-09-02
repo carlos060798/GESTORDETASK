@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom';
 
 function NabarAdmin() {
   return(<>
-  <Navbar expand="lg" className="bg-body-tertiary mb-3 ">
-  <Container >
-    <Navbar.Brand href="#">TASKMANAGER</Navbar.Brand>
+ <Navbar expand="lg" className="bg-primary mb-3">
+  <Container>
+    <Navbar.Brand href="#" className="text-white fs-3">TASKMANAGER</Navbar.Brand>
     <Navbar.Toggle aria-controls="offcanvasNavbar" />
     <Navbar.Offcanvas
       id="offcanvasNavbar"
@@ -18,21 +18,16 @@ function NabarAdmin() {
       placement="end"
     >
       <Offcanvas.Header closeButton>
-        <Offcanvas.Title id="offcanvasNavbarLabel">TASKMANAGER</Offcanvas.Title>
+        <Offcanvas.Title id="offcanvasNavbarLabel" className="text-white fs-3">TASKMANAGER</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
         <Nav className="justify-content-end flex-grow-1 pe-3">
-        <Nav.Link as={Link} to="taskmanager">Gestor de tareas</Nav.Link> {/* Usar as={Link} */}
-              <NavDropdown
-                title="Cuenta"
-                id="offcanvasNavbarDropdown"
-              >
-                <NavDropdown.Item as={Link} to="perfil">Perfil</NavDropdown.Item> {/* Usar as={Link} */}
-                <NavDropdown.Divider />
-                <NavDropdown.Item  as={Link}to="/" >Cerrar Sesión</NavDropdown.Item>
-              </NavDropdown>
+          <Nav.Link as={Link} to="taskmanager" className="text-white fs-5">Gestor de tareas</Nav.Link>
+          <Nav.Link as={Link} to="perfil" className="text-white fs-5">Perfil</Nav.Link>
+          <Nav.Link as={Link} to="/" className="text-white fs-5">Cerrar Sesión</Nav.Link>
+
+          
         </Nav>
-     
       </Offcanvas.Body>
     </Navbar.Offcanvas>
   </Container>
