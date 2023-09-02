@@ -15,7 +15,11 @@ const Registrar = async (req, res) => {
            msg: "El correo ya existe no se puede crear otro usuario con el mismo correo"
        });
    }
-
+   if (password.length < 6) {
+        return res.status(400).json({
+            msg: "La contraseña debe tener al menos 6 caracteres"
+        });
+   }
 
   //encriptar contraseña
    const salt = bycscript.genSaltSync();

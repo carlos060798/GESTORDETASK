@@ -41,17 +41,17 @@ function useRegistrarUser() {
     }
     console.log(formData);
 
-
+  
     try {
-      // 1. Llamar a la API para crear el usuario
-      const usuarioResponse = await axios.post(
-        "http://localhost:4000/api/Usuario",
-        formData
-      );
-        console.log("Usuario creado exitosamente");
+       // 1. Llamar a la API para crear el usuario
+   const usuarioResponse = await axios.post(
+    "http://localhost:4000/api/Usuario",
+    formData
+  );
+  const {data} = usuarioResponse;
       // Mostrar alerta de éxito
       setAlerta({
-        msg: "Usuario creado exitosamente",
+        msg: data.msg,
         error: false,
       });
       // Limpiar formulario
@@ -65,7 +65,7 @@ function useRegistrarUser() {
       console.error("Error al Registrarse:", error);
       // Mostrar alerta de error
       setAlerta({
-        msg: "Error al registrarse",
+        msg: error.response.data.msg,
         error: true,
       });
     }
