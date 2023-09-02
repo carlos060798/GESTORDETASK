@@ -1,50 +1,60 @@
+import useRegistrarUser from "../../hooks/UseRegistro";
+import Alerta from "./Alertas";
+
 function RegistroUser() {
+  const {
+    
+    handleChange,
+    handleRegistro ,
+    formData,
+  
+    alerta,
+  }=  useRegistrarUser();
     return ( <>
     <div className="container my-5">
   <h1 className="text-center fw-bold text-primary">Registrarse Datos</h1>
-  <form>
+  <form onSubmit={handleRegistro}>
     <div className="row justify-content-center">
       <div className="col-12 col-md-6">
         <div className="mb-3">
-          <label htmlFor="nombres" className="form-label">
+          <label htmlFor="nombre" className="form-label">
             Nombres
           </label>
           <input
             type="text"
             className="form-control"
-            name="nombres" // Cambiado de "titulo" a "nombres"
+            name="nombre" 
+            value={formData.nombre}
+            onChange={handleChange}
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="correo" className="form-label">
+          <label htmlFor="email" className="form-label">
             Correo
           </label>
           <input
             type="email"
             className="form-control"
-            name="correo" // Cambiado de "titulo" a "correo"
+            name="email" 
+            value={formData.email}
+            onChange={handleChange}
+
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="contrasena" className="form-label">
+          <label htmlFor="
+password" className="form-label">
             Contraseña
           </label>
           <input
             type="password"
             className="form-control"
-            name="contrasena" // Cambiado de "titulo" a "contrasena"
-          />
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+          /> 
         </div>
-        <div className="mb-3">
-          <label htmlFor="repetir-contrasena" className="form-label">
-            Repetir contraseña
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            name="repetir-contrasena" // Cambiado de "titulo" a "repetir-contrasena"
-          />
-        </div>
+        
       </div>
     </div>
     <div className="text-center">
@@ -53,6 +63,7 @@ function RegistroUser() {
       </button>
     </div>
   </form>
+  {alerta.msg && <Alerta alerta={alerta} />}{" "}
 </div>
     </>
   );

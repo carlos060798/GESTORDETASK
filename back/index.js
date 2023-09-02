@@ -14,7 +14,7 @@ dotenv.config();
 connectDB(); 
 // cors para que se pueda conectar con el front
 
-const dominiosPermitidos = ["http://localhost:3000"] // dominios permitidos para recibir peticiones
+const dominiosPermitidos = ["http://localhost:5173"] // dominios permitidos para recibir peticiones
 
 
 const corsOptions = {
