@@ -7,7 +7,7 @@ function FormTask() {
             <div className="col-12">
               <div className="mb-3">
                 <label htmlFor="nombres" className="form-label">
-                  Nombres
+                  Titulo
                 </label>
                 <input
                   type="text"
@@ -16,9 +16,10 @@ function FormTask() {
                  
                 />
               </div>
+              
               <div className="mb-3">
                 <label htmlFor="observaciones" className="form-label">
-                  Descripción y/o Observaciones
+                  Descripción de la tarea
                 </label>
                 <textarea
                   className="form-control"
