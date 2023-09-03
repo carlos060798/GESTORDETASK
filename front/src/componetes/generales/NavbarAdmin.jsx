@@ -12,7 +12,7 @@ function NabarAdmin() {
   return(<>
 <Navbar expand="lg" className="bg-white mb-3">
   <Container>
-    <Navbar.Brand href="#" className="text-primary fs-3">TASKMANAGER</Navbar.Brand>
+    <Navbar.Brand href="#" className="text-primary fw-bold fs-3">TASKMANAGER</Navbar.Brand>
     <Navbar.Toggle aria-controls="offcanvasNavbar" />
     <Navbar.Offcanvas
       id="offcanvasNavbar"
@@ -24,9 +24,9 @@ function NabarAdmin() {
       </Offcanvas.Header>
       <Offcanvas.Body>
         <Nav className="d-flex flex-column flex-lg-row justify-content-lg-end align-items-center flex-grow-1 pe-3">
-          <Nav.Link as={Link} to="taskmanager" className="text-primary fs-md-5 fs-sm-4 fs-5 text-lg-center">Gestor de tareas</Nav.Link>
-          <Nav.Link as={Link} to="perfil" className="text-primary fs-md-5 fs-sm-4 fs-5 text-lg-center">Perfil</Nav.Link>
-          <Nav.Link as={Button} onClick={handleCerrarSesion} className="btn btn-primary fs-md-5 fs-sm-4 fs-5">Cerrar Sesión</Nav.Link>
+          <Nav.Link as={Link} to="taskmanager" className="text-primary  text-lg-center">Gestor de tareas</Nav.Link>
+          <Nav.Link as={Link} to="perfil" className="text-primary text-lg-center">Perfil</Nav.Link>
+          <Nav.Link as={Button} onClick={handleCerrarSesion} className="btn btn-primary ">Cerrar Sesión</Nav.Link>
         </Nav>
       </Offcanvas.Body>
     </Navbar.Offcanvas>
