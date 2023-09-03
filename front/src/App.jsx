@@ -5,10 +5,10 @@ import PageInicio from "./pages/layaut";
 import Nosotros from "./pages/About";
 import LayautAdmin from "./componetes/Admin";
 import Home from "./pages/Inicio";
-import Section from "./componetes/generales/login"; 
 import Perfils from "./componetes/generales/Perfil";
 import TasksComponet from "./componetes/generales/Tasks";
 import RegistroUser from "./componetes/generales/Registro";
+import Section from "./componetes/generales/Login";
 
 function App() {
   return (
