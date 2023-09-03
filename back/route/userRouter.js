@@ -4,7 +4,8 @@ import {
   Registrar,
   ModificarUsuario,
 } from "../controller/UsuarioController.js"
-import autencicar from "../controller/LoginController.js";
+import autenticar from "../controller/LoginController.js";
+import verificarToken from "../middleware/authLogin.js";
 
 const router = express.Router();
 
@@ -14,6 +15,5 @@ router.post("/", Registrar);
 router.put("/:id", ModificarUsuario);
 
 // rutas de  iniciar seccion
-router.post("/login", autencicar);
-
+router.post('/login',autenticar,verificarToken)
 export default router;

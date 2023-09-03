@@ -5,8 +5,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Link } from 'react-router-dom';
+import useLogin from '../../hooks/useLogin';
 
 function NabarAdmin() {
+  const{handleCerrarSesion}=useLogin();
   return(<>
  <Navbar expand="lg" className="bg-primary mb-3">
   <Container>
@@ -24,7 +26,7 @@ function NabarAdmin() {
         <Nav className="justify-content-end flex-grow-1 pe-3">
           <Nav.Link as={Link} to="taskmanager" className="text-white fs-5">Gestor de tareas</Nav.Link>
           <Nav.Link as={Link} to="perfil" className="text-white fs-5">Perfil</Nav.Link>
-          <Nav.Link as={Link} to="/" className="text-white fs-5">Cerrar Sesión</Nav.Link>
+          <Nav.Link as={Button} onClick={handleCerrarSesion} className="text-white fs-5">Cerrar Sesión</Nav.Link>
 
           
         </Nav>

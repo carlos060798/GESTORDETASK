@@ -36,7 +36,7 @@ function useLogin() {
       );
       console.log("RESPUESTA DE LA API:", usuarioResponse);
       const { data } = usuarioResponse;
-      console.log(data);  
+      localStorage.setItem("token", data.token);
       // Autenticación exitosa
       console.log("AUTENTICACION CORRECTA");
       setAlerta({
@@ -44,8 +44,7 @@ function useLogin() {
         error: false,
       });
 
-      // Guardar la información de inicio de sesión en el almacenamiento local del navegador
-      localStorage.setItem("usuarioLogeado", "true");
+      
 
       // Redirigir después de 5 segundos
       setTimeout(() => {
@@ -64,12 +63,26 @@ function useLogin() {
         }, 3000);
     }
   };
+  const handleCerrarSesion = () => {
+    // Eliminar el token del almacenamiento local
+    localStorage.removeItem("token");
+  
+    // Redirigir al usuario a la página de inicio de sesión u otra página deseada
+    redireccion("/login");
+  };
+
+  
+  
+  
+  
+  
 
   return {
     alerta,
     DataUser,
     handleChangeUser,
     handleSeccion,
+    handleCerrarSesion 
   };
 }
 

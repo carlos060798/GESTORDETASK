@@ -9,6 +9,7 @@ import Perfils from "./componetes/generales/Perfil";
 import TasksComponet from "./componetes/generales/Tasks";
 import RegistroUser from "./componetes/generales/Registro";
 import Section from "./componetes/generales/Login";
+import RutaPrivada from "./pages/RutaPrivada";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <Route path="/about" element={<Nosotros />} />
           <Route path="/login" element={<Section />} />
         </Route>
-        <Route path="user" element={<LayautAdmin />}>
+        <Route path="user" element={<RutaPrivada element={<LayautAdmin />} />}>
           <Route index element={<TasksComponet />} />
           <Route path="taskmanager" element={<TasksComponet />} />
           <Route path="perfil" element={<Perfils />} />
