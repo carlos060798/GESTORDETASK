@@ -17,7 +17,7 @@ function TableList() {
       .catch((error) => {
         console.error('Error al obtener las tareas:', error);
       });
-  }, []);
+  }, [userTasks]);
 
   return (
     <>
