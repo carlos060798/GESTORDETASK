@@ -16,8 +16,8 @@ const taskSchema = mongoose.Schema({
     default: Date.now()
    },
   complete:{
-    type: Boolean,
-    default: false,
+    type: String,
+    default: "pendiente",
   }, 
   usuario:{
     type: mongoose.Schema.Types.ObjectId,

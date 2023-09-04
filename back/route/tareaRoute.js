@@ -13,7 +13,9 @@ const router = express.Router();
 
 router
   .route("/")
-  .post(agregarTarea).get(obtenerTareas); 
+  .post(agregarTarea)
+  
+  router.get("/usuario/:id", obtenerTareas);
 
   // operaciones del crud 
   router

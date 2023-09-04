@@ -19,12 +19,26 @@ const agregarTarea = async (req, res) => {
 
 
 
-const obtenerTareas = async (req, res) => {
-  // funcion para listar los tasks por veterianrio que los creo
-  const tasks = await Tarea.find()
-   
-  res.json(tasks);
-};
+  const obtenerTareas = async (req, res) => {
+    try {
+      const usuarioId = req.params.id; // Obtén el ID del usuario de la URL
+  
+      // Encuentra todas las tareas que pertenecen al usuario especificado
+      const tareas = await Tarea.find({ usuario: usuarioId });
+  
+      res.json(tareas);
+    } catch (error) {
+      console.error("Error al obtener las tareas del usuario:", error);
+      res.status(500).json({ msg: "Error al obtener las tareas del usuario" });
+    }
+  };
+  
+  
+  
+  
+  
+  
+  
 
 const obtenerTareaid = async (req, res) => {
   const { id } = req.params; 
