@@ -82,8 +82,14 @@ function UseTasks() {
     // Implementa la lógica para actualizar una tarea
   };
 
-  const handleDeleteTask = (e) => {
-    // Implementa la lógica para eliminar una tarea
+  const handleDeleteTask =async (taskId) => {
+    try {
+      await axios.delete(`http://localhost:4000/api/Tarea/${taskId}`);
+      console.log("Tarea eliminada correctamente");
+      // Aquí puedes realizar alguna acción adicional si lo deseas, como actualizar la lista de tareas en tu componente.
+    } catch (error) {
+      console.error("Error al eliminar la tarea:", error);
+    }
   };
 
   const handleGetTask = (e) => {

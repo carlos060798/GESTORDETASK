@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardGroup } from 'react-bootstrap';
 import axios from 'axios';
+import UseTasks from '../../hooks/useTask';
 
 function TableList() {
   const [userTasks, setUserTasks] = useState([]);
+  const {handleDeleteTask} = UseTasks();
 
   useEffect(() => {
     // Realiza una solicitud a la API para obtener las tareas del usuario actual
@@ -33,7 +35,7 @@ function TableList() {
               </Card.Body>
               <Card.Footer className="d-flex justify-content-center">
                 <button className="btn btn-primary mx-2">Editar</button>
-                <button className="btn btn-danger mx-2">Eliminar</button>
+                <button className="btn btn-danger mx-2" onClick={() => handleDeleteTask(task._id)}>Eliminar</button>
                 <button className="btn btn-success">Completar</button>
               </Card.Footer>
             </Card>
