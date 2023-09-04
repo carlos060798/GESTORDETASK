@@ -1,8 +1,11 @@
+import UseTasks from "../../hooks/useTask";
+
 function FormTask() {
+  const { Formtask,handleChange,handleCreateTask}=UseTasks();
     return (<>
             <div className="container my-5">
         <h1 className="text-center fw-bold text-center text-primary">Crear Tareas</h1>
-        <form>
+        <form onSubmit={handleCreateTask}>
           <div className="row">
             <div className="col-12">
               <div className="mb-3">
@@ -12,19 +15,22 @@ function FormTask() {
                 <input
                   type="text"
                   className="form-control"
-                  name="titulo"
-                 
+                  name="titulo" 
+                  value={Formtask.titulo}
+                  onChange={handleChange}           
                 />
               </div>
               
               <div className="mb-3">
-                <label htmlFor="observaciones" className="form-label">
+                <label htmlFor="descripcion" className="form-label">
                   Descripción de la tarea
                 </label>
                 <textarea
                   className="form-control"
-                  name="observaciones"
+                  name="descripcion"
                   rows="3"
+                  value={Formtask.descripcion}
+                  onChange={handleChange}
                   
                 ></textarea>
               </div>

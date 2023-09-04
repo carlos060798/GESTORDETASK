@@ -3,7 +3,7 @@ import Tarea from "../model/TaskModel.js";
 const agregarTarea = async (req, res) => {
   // llenar datos
     const task = new Tarea(req.body); 
-    task.usuario = req.body.id;
+    task.usuario = req.body.usuario;
     // guardar datos
     try {
       const Tasksave = await task.save(); 
