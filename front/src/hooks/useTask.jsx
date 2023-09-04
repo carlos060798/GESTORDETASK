@@ -86,7 +86,7 @@ function UseTasks() {
     // Implementa la lógica para eliminar una tarea
   };
 
-  const handleGetTasks = (e) => {
+  const handleGetTask = (e) => {
     // Implementa la lógica para obtener las tareas
   };
 
@@ -101,7 +101,7 @@ function UseTasks() {
     handleCreateTask,
     handleUpdateTask,
     handleDeleteTask,
-    handleGetTasks,
+    handleGetTask,
     handleChangeState,
     alerta,
   };
