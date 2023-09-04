@@ -8,7 +8,7 @@ function UseTasks() {
     descripcion: "",
     usuario: "", // Asigna el ID del usuario aquí
   });
-  const [Alerta, setAlerta] = useState({});
+  const [alerta, setAlerta] = useState({});
 
   useEffect(() => {
     // Obtener el valor del "userId" del localStorage
@@ -56,13 +56,15 @@ function UseTasks() {
         msg: data.msg,
         error: false,
       });
-      // Limpiar formulario
+
+      // Limpiar formulario y ocultar la alerta después de 3 segundos
       setTimeout(() => {
         setFormTask({
           titulo: "",
           descripcion: "",
           usuario: Formtask.usuario, // Mantén el ID del usuario
         });
+        setAlerta({});
       }, 3000);
     } catch (error) {
       console.error("Error al Crear Tarea:", error);
@@ -92,7 +94,6 @@ function UseTasks() {
     // Implementa la lógica para cambiar el estado de una tarea
   };
 
-
   return {
     tasks,
     Formtask,
@@ -102,13 +103,27 @@ function UseTasks() {
     handleDeleteTask,
     handleGetTasks,
     handleChangeState,
+    alerta,
   };
 }
 
 export default UseTasks;
 
-/*import { useState } from "react";
-import axios from "axios"; // Asegúrate de importar axios
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*import { useState, useEffect } from "react";
+import axios from "axios";
 
 function UseTasks() {
   const [tasks, setTasks] = useState([]);
@@ -117,7 +132,20 @@ function UseTasks() {
     descripcion: "",
     usuario: "", // Asigna el ID del usuario aquí
   });
-  const [Alerta, setAlerta] = useState({});
+  const [alerta, setAlerta] = useState({});
+
+  useEffect(() => {
+    // Obtener el valor del "userId" del localStorage
+    const usuarioid = localStorage.getItem("userId");
+
+    // Actualizar el estado de Formtask con el valor de usuario del localStorage
+    if (usuarioid) {
+      setFormTask((prevFormTask) => ({
+        ...prevFormTask,
+        usuario: usuarioid,
+      }));
+    }
+  }, []); // Este useEffect se ejecutará una vez después del montaje del componente
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -146,8 +174,6 @@ function UseTasks() {
         Formtask
       );
       const { data } = TareaResponse;
-
-      // Mostrar alerta de éxito
       setAlerta({
         msg: data.msg,
         error: false,
@@ -157,8 +183,9 @@ function UseTasks() {
         setFormTask({
           titulo: "",
           descripcion: "",
-          usuario: usuarioid, // Asegúrate de incluir el ID del usuario nuevamente
+          usuario: Formtask.usuario, // Mantén el ID del usuario
         });
+        setAlerta({}); // Oculta la alerta
       }, 3000);
     } catch (error) {
       console.error("Error al Crear Tarea:", error);
@@ -188,6 +215,7 @@ function UseTasks() {
     // Implementa la lógica para cambiar el estado de una tarea
   };
 
+
   return {
     tasks,
     Formtask,
@@ -197,8 +225,10 @@ function UseTasks() {
     handleDeleteTask,
     handleGetTasks,
     handleChangeState,
+    alerta
   };
 }
 
 export default UseTasks;
+
 */

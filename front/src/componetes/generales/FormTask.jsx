@@ -1,7 +1,9 @@
 import UseTasks from "../../hooks/useTask";
+import Alerta from "./Alertas";
+
 
 function FormTask() {
-  const { Formtask,handleChange,handleCreateTask}=UseTasks();
+  const { Formtask,handleChange,handleCreateTask,alerta}=UseTasks();
     return (<>
             <div className="container my-5">
         <h1 className="text-center fw-bold text-center text-primary">Crear Tareas</h1>
@@ -41,7 +43,8 @@ function FormTask() {
                Crear Tarea
             </button>
           </div>
-        </form>
+        </form> 
+        {alerta.msg && <Alerta alerta={alerta} />}{" "}
       </div>
     
     </>  );
