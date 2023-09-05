@@ -4,10 +4,9 @@ import axios from 'axios';
 import UseTasks from '../../hooks/useTask';
 
 function TableList() {
-  const [userTasks, setUserTasks] = useState([]);
-  const {handleDeleteTask} = UseTasks();
+  const {handleDeleteTask,tasks} = UseTasks();
 
-  useEffect(() => {
+ /* useEffect(() => {
     // Realiza una solicitud a la API para obtener las tareas del usuario actual
     const userId = localStorage.getItem('userId');
     
@@ -19,12 +18,12 @@ function TableList() {
       .catch((error) => {
         console.error('Error al obtener las tareas:', error);
       });
-  }, [userTasks]);
+  }, [userTasks]);*/
 
   return (
     <>
       <CardGroup className="justify-content-center">
-        {userTasks.map((task) => (
+        {tasks.map((task) => (
           <div className="col-12 col-md-8" key={task._id}>
             <Card className="mb-3">
               <Card.Body>

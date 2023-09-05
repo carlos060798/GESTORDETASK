@@ -21,7 +21,21 @@ function UseTasks() {
         usuario: usuarioid,
       }));
     }
-  }, []); // Este useEffect se ejecutará una vez después del montaje del componente
+
+    const getTasks = async () => {
+      const userId = localStorage.getItem('userId');
+    
+      axios.get(`http://localhost:4000/api/Tarea//usuario/${userId}`)
+        .then((response) => {
+          // Almacena las tareas del usuario en el estado
+          setTasks(response.data);
+        })
+        .catch((error) => {
+          console.error('Error al obtener las tareas:', error);
+        });
+    }
+    getTasks();
+  }, [tasks]); // Este useEffect se ejecutará una vez después del montaje del componente
 
   const handleChange = (e) => {
     const { name, value } = e.target;
