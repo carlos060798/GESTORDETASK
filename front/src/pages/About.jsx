@@ -1,18 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {  Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faList } from '@fortawesome/free-solid-svg-icons';
+
 
 function Nosotros() {
   return (
     <>
         <>
-      <div className="mt-5 container">
-      <div className="bg-primary text-white text-center py-5">
-        <h1 className="text-4xl font-bold">Gestor de Tareas</h1>
+      <div className="mt-5">
+      <div className="mt-5">
+      <div className="bg-primary text-white text-center py-5 mt-3rem">
+        <h1 className="text-xl fw-bolder"> <FontAwesomeIcon icon={faList} size="1x" className='mx-1' />TASMANAGER</h1>
         <p className="text-xl mt-4">Mantente organizado y productivo</p>
-        <Link to="/" className="mt-4">
-          <button className="btn btn-dark mt-4">Volver a Inicio</button>
+        <Link to="/Registro" className="mt-4">
+          <Button variant="light" className="mt-4">Empezar</Button>
         </Link>
+        <div className="text-white text-center py-3 mt-8">
+          <p className="font-semibold text-xl mb-0">Task Manager &copy; 2023</p>
+        </div>
       </div>
+    </div>
 
       <div className="container mt-5">
         <div className="row">
@@ -43,6 +52,7 @@ function Nosotros() {
       </div>
 
       <div className="bg-primary text-white text-center py-3">
+      <h3 className="text-xl fw-bolder"> <FontAwesomeIcon icon={faList} size="1x" className='mx-1' />TASMANAGER</h3>
         <p className="font-semibold text-2xl">Gestor de Tareas © 2023</p>
       </div>
     </div>

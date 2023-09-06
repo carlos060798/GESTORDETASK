@@ -16,7 +16,7 @@ const Home = () => {
         <div className="text-white text-center py-3 mt-8">
           <p className="font-semibold text-xl mb-0">Task Manager &copy; 2023</p>
         </div>
-      </div>
+      </div> 
     </div>
   );
 };
