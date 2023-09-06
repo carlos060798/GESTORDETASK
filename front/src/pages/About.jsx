@@ -17,9 +17,6 @@ function Nosotros() {
         <Link to="/Registro" className="mt-4">
           <Button variant="light" className="mt-4">Empezar</Button>
         </Link>
-        <div className="text-white text-center py-3 mt-8">
-          <p className="font-semibold text-xl mb-0">Task Manager &copy; 2023</p>
-        </div>
       </div>
     </div>
 
