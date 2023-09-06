@@ -47,15 +47,12 @@ const obtenerTareaid = async (req, res) => {
     // busca el id del task
     res.status(404).json({ msg: "tarea no encontrado" }); 
   }
-
-
-  if (task) {
     res.json({
       // si el task existe
       msg: "tarea encontradas",
-      Tareas: task,
+      task
     });
-  }
+  
 };
 
 const actualizarTarea = async (req, res) => {
@@ -70,7 +67,7 @@ const actualizarTarea = async (req, res) => {
   // actulizar tarea
 
   task.titulo = req.body.titulo || task.titulo;
-  task.descripcion = req.body.descripcionx || task.descripcion;
+  task.descripcion = req.body.descripcion || task.descripcion;
  
 
   try {
