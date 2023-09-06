@@ -110,9 +110,16 @@ function UseTasks() {
     // Implementa la lógica para obtener las tareas
   };
 
-  const handleChangeState = (e) => {
-    // Implementa la lógica para cambiar el estado de una tarea
-  };
+  const handleChangeState = async (taskId) => {
+      try {
+        await axios.patch(`http://localhost:4000/api/Tarea/${taskId}`);
+        console.log("Tarea completa correctamente");
+        // Aquí puedes realizar alguna acción adicional si lo deseas, como actualizar la lista de tareas en tu componente.
+      } catch (error) {
+        console.error("Error al completar la tarea:", error);
+      }
+    };
+  
 
   return {
     tasks,

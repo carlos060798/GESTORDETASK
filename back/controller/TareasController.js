@@ -111,7 +111,7 @@ const cambiarEstadoTarea = async (req, res) => {
   // si  la tarea  existe y el id referenciado es valido
   // actulizar tarea
 
-  task.complete = true;
+  task.complete = "completada";
  
 
   try {

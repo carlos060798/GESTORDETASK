@@ -4,7 +4,7 @@ import UseTasks from '../../hooks/useTask';
 import EditTaskForm from './FormTaksedit';
 
 function TableList() {
-  const { handleDeleteTask, tasks } = UseTasks();
+  const { handleDeleteTask, tasks,handleChangeState} = UseTasks();
   const [editingTaskId, setEditingTaskId] = useState(null);
 
   const handleEditClick = (taskId) => {
@@ -50,7 +50,7 @@ function TableList() {
                     >
                       Eliminar
                     </button>
-                    <button className="btn btn-success">Completar</button>
+                    <button className="btn btn-success" onClick={ handleChangeState(task._id)}>Completar</button>
                   </Card.Footer>
                 </Card>
               </div>
