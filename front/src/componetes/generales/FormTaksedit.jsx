@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 function EditTaskForm({ taskId, onCancelEdit }) {
   const [taskData, setTaskData] = useState({
@@ -41,8 +43,16 @@ function EditTaskForm({ taskId, onCancelEdit }) {
   };
 
   return (
-    <div>
-      <h2 className="text-center fw-bold text-primary">Editar Tarea</h2>
+    <div
+      className="container my-5 p-4 rounded"
+      style={{
+        background: "#f8f9fa", // Fondo gris claro
+        boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.2)", // Sutil sombra
+      }}
+    >
+      <h2 className="text-center fw-bold text-primary">
+        <FontAwesomeIcon icon={faEdit} className="me-2" /> Editar Tarea
+      </h2>
 
       <form onSubmit={handleUpdateTask}>
         <div className="mb-3">
@@ -70,15 +80,19 @@ function EditTaskForm({ taskId, onCancelEdit }) {
           ></textarea>
         </div>
         <div className="d-flex justify-content-center gap-3">
-          <button type="submit" className="btn btn-primary">
-            Guardar Cambios
+          <button
+            type="submit"
+            className="btn btn-primary"
+            style={{ background: "#007bff", borderColor: "#007bff" }} // Fondo y borde azules
+          >
+            <FontAwesomeIcon icon={faEdit} className="me-2" /> Guardar Cambios
           </button>
           <button
             type="button"
             className="btn btn-secondary"
             onClick={onCancelEdit}
           >
-            Cancelar
+            <FontAwesomeIcon icon={faTimes} className="me-2" /> Cancelar
           </button>
         </div>
       </form>

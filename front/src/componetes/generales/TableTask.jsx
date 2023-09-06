@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardGroup } from 'react-bootstrap';
 import UseTasks from '../../hooks/useTask';
 import EditTaskForm from './FormTaksedit';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrash, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 function TableList() {
-  const { handleDeleteTask, tasks,handleChangeState} = UseTasks();
+  const { handleDeleteTask, tasks, handleChangeState } = UseTasks();
   const [editingTaskId, setEditingTaskId] = useState(null);
 
   const handleEditClick = (taskId) => {
@@ -18,15 +20,15 @@ function TableList() {
   return (
     <div className="container">
       <div className="row">
-      <div className="col-12 col-md-5">
+        <div className="col-12 col-md-4">
           {editingTaskId && (
-            <EditTaskForm 
+            <EditTaskForm
               taskId={editingTaskId}
               onCancelEdit={handleCancelEdit}
             />
           )}
         </div>
-        <div className=" col-12 col-md-7">
+        <div className=" col-12 col-md-8">
           <CardGroup className="justify-content-center">
             {tasks.map((task) => (
               <div className="col-12 col-md-8" key={task._id}>
@@ -42,15 +44,20 @@ function TableList() {
                       className="btn btn-primary mx-2"
                       onClick={() => handleEditClick(task._id)}
                     >
-                      Editar
+                      <FontAwesomeIcon icon={faEdit} />
                     </button>
                     <button
                       className="btn btn-danger mx-2"
                       onClick={() => handleDeleteTask(task._id)}
                     >
-                      Eliminar
+                      <FontAwesomeIcon icon={faTrash} />
                     </button>
-                    <button className="btn btn-success" onClick={ handleChangeState(task._id)}>Completar</button>
+                    <button
+                      className="btn btn-success"
+                      onClick={() => handleChangeState(task._id)}
+                    >
+                      <FontAwesomeIcon icon={faCheck} />
+                    </button>
                   </Card.Footer>
                 </Card>
               </div>
