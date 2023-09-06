@@ -10,6 +10,7 @@ import TasksComponet from "./componetes/generales/Tasks";
 import RegistroUser from "./componetes/generales/Registro";
 import Section from "./componetes/generales/Login";
 import RutaPrivada from "./pages/RutaPrivada";
+import TableList from "./componetes/generales/TableTask";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="user" element={<RutaPrivada element={<LayautAdmin />} />}>
           <Route index element={<TasksComponet />} />
           <Route path="taskmanager" element={<TasksComponet />} />
+          <Route path="listtask" element={<TableList/>} />
           <Route path="perfil" element={<Perfils />} />
         </Route>
       </Routes>

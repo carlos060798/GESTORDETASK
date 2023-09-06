@@ -1,5 +1,6 @@
 import FormTask from "./FormTask";
-import TableList from "./TableTask";
+import TableLists from "./TableTasks";
+
 
 function TasksComponet() {
     return ( <>
@@ -9,10 +10,9 @@ function TasksComponet() {
         < FormTask/>
         </div>
         <div className=" col-12 col-md-7">
-         <TableList/>
+         <TableLists/>
         </div>
       </div>
-
      </div>
     </> );
 }
