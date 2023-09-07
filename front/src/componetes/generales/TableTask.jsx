@@ -9,6 +9,13 @@ function TableList() {
   const { handleDeleteTask, tasks, handleChangeState } = UseTasks();
   const [editingTaskId, setEditingTaskId] = useState(null);
 
+  const formatearFecha = (fecha) => {
+    //  funcion para formatear la fecha
+    const nuevaFecha = new Date(fecha); // crea un objeto de tipo fecha
+    nuevaFecha.setMinutes(nuevaFecha.getMinutes() + nuevaFecha.getTimezoneOffset()); //ajusta la hora a la zona horaria
+    return new Intl.DateTimeFormat("es-MX", { dateStyle: "long" }).format( nuevaFecha); // retorna la fecha formateada
+  };
+
   const handleEditClick = (taskId) => {
     setEditingTaskId(taskId);
   };
@@ -36,7 +43,7 @@ function TableList() {
                   <Card.Body>
                     <Card.Title className="text-center">{task.titulo}</Card.Title>
                     <Card.Text>Descripción: {task.descripcion}</Card.Text>
-                    <Card.Text>Fecha de Creación: {task.fecha}</Card.Text>
+                    <Card.Text>Fecha de Creación: {formatearFecha(task.fecha)}</Card.Text>
                     <Card.Text>Estado: {task.complete}</Card.Text>
                   </Card.Body>
                   <Card.Footer className="d-flex justify-content-center">
