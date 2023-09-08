@@ -22,7 +22,7 @@ function useRegistrarUser() {
 
   const handleRegistro = async (e) => {
     e.preventDefault();
-
+  
     // Validar que no falten campos
     if ([formData.nombre, formData.email, formData.password].includes("")) {
       setAlerta({
@@ -32,7 +32,7 @@ function useRegistrarUser() {
       return;
     }
     console.log(formData);
-
+  
     try {
       // 1. Llamar a la API para crear el usuario
       const usuarioResponse = await axios.post(
@@ -45,15 +45,15 @@ function useRegistrarUser() {
         msg: data.msg,
         error: false,
       });
-      // Limpiar formulario
+      // Limpiar formulario y redirigir después de 10 segundos
       setTimeout(() => {
         setFormData({
           nombre: "",
           email: "",
           password: "",
         });
-      }, 3000);
-      redireccion("/login");
+        redireccion("/login");
+      }, 5000); // 10000 milisegundos (10 segundos)
     } catch (error) {
       console.error("Error al Registrarse:", error);
       // Mostrar alerta de error

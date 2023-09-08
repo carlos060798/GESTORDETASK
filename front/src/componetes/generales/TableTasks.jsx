@@ -14,8 +14,12 @@ function TableLists() {
   return (
     <div className="container my-5">
       <div className="row">
+      <p className="text-center mt-3 text-primary">
+  <strong>¡Tienes un total de {tasks.length} tareas por gestionar!</strong>
+</p>
         {tasks.map((task) => (
           <div className="col-12 col-md-6 col-lg-6 mb-4" key={task._id}>
+            
             <Card className="h-100" style={{ boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
               <Card.Body>
                 <Card.Title className="text-center fw-bold mb-3">{task.titulo}</Card.Title>
