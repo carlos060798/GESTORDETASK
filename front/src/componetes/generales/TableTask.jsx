@@ -8,12 +8,12 @@ import { faEdit, faTrash, faCheck } from '@fortawesome/free-solid-svg-icons';
 function TableList() {
   const { handleDeleteTask, tasks, handleChangeState } = UseTasks();
   const [editingTaskId, setEditingTaskId] = useState(null);
+  const [showPending, setShowPending] = useState(true); // Por defecto, mostrar pendientes
 
   const formatearFecha = (fecha) => {
-    //  funcion para formatear la fecha
-    const nuevaFecha = new Date(fecha); // crea un objeto de tipo fecha
-    nuevaFecha.setMinutes(nuevaFecha.getMinutes() + nuevaFecha.getTimezoneOffset()); //ajusta la hora a la zona horaria
-    return new Intl.DateTimeFormat("es-MX", { dateStyle: "long" }).format( nuevaFecha); // retorna la fecha formateada
+    const nuevaFecha = new Date(fecha);
+    nuevaFecha.setMinutes(nuevaFecha.getMinutes() + nuevaFecha.getTimezoneOffset());
+    return new Intl.DateTimeFormat("es-MX", { dateStyle: "long" }).format(nuevaFecha);
   };
 
   const handleEditClick = (taskId) => {
@@ -24,45 +24,60 @@ function TableList() {
     setEditingTaskId(null);
   };
 
+  const handleShowPendingClick = () => {
+    setShowPending(true);
+  };
+
+  const handleShowCompletedClick = () => {
+    setShowPending(false);
+  };
+
+  // Filtrar tareas según el estado deseado (pendientes o completadas)
+  const filteredTasks = showPending ? tasks.filter((task) => task.complete === "pendiente") : tasks.filter((task) => task.complete === "completada");
+
   return (
     <div className="container">
       <div className="row">
-        <div className="col-12 col-md-4">
-          {editingTaskId && (
-            <EditTaskForm
-              taskId={editingTaskId}
-              onCancelEdit={handleCancelEdit}
-            />
-          )}
+        <div className="col-12">
+          <button
+            className={`btn btn-primary mx-2 ${showPending ? 'active' : ''}`}
+            onClick={handleShowPendingClick}
+          >
+            Mostrar Pendientes
+          </button>
+          <button
+            className={`btn btn-primary mx-2 ${!showPending ? 'active' : ''}`}
+            onClick={handleShowCompletedClick}
+          >
+            Mostrar Completados
+          </button>
         </div>
-        <div className=" col-12 col-md-8">
+      </div>
+      <div className="row">
+        {editingTaskId && (
+          <div className="col-12">
+            <EditTaskForm taskId={editingTaskId} onCancelEdit={handleCancelEdit} />
+          </div>
+        )}
+        <div className="col-12">
           <CardGroup className="justify-content-center">
-            {tasks.map((task) => (
-              <div className="col-12 col-md-8" key={task._id}>
-                <Card className="mb-3">
+            {filteredTasks.map((task) => (
+              <div className="col-12 col-md-4" key={task._id}>
+                <Card className={`mb-3 ${task.complete === 'completada' ? 'bg-success text-white' : 'bg-danger text-white'}`}>
                   <Card.Body>
                     <Card.Title className="text-center">{task.titulo}</Card.Title>
                     <Card.Text>Descripción: {task.descripcion}</Card.Text>
                     <Card.Text>Fecha de Creación: {formatearFecha(task.fecha)}</Card.Text>
-                    <Card.Text>Estado: {task.complete}</Card.Text>
+                    <Card.Text>Estado: {task.complete === 'completada' ? 'completada' : 'pendiente'}</Card.Text>
                   </Card.Body>
                   <Card.Footer className="d-flex justify-content-center">
-                    <button
-                      className="btn btn-primary mx-2"
-                      onClick={() => handleEditClick(task._id)}
-                    >
+                    <button className="btn btn-primary mx-2" onClick={() => handleEditClick(task._id)}>
                       <FontAwesomeIcon icon={faEdit} />
                     </button>
-                    <button
-                      className="btn btn-danger mx-2"
-                      onClick={() => handleDeleteTask(task._id)}
-                    >
+                    <button className="btn btn-danger mx-2" onClick={() => handleDeleteTask(task._id)}>
                       <FontAwesomeIcon icon={faTrash} />
                     </button>
-                    <button
-                      className="btn btn-success"
-                      onClick={() => handleChangeState(task._id)}
-                    >
+                    <button className="btn btn-success" onClick={() => handleChangeState(task._id)}>
                       <FontAwesomeIcon icon={faCheck} />
                     </button>
                   </Card.Footer>
